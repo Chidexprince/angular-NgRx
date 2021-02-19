@@ -1,0 +1,27 @@
+<p>payment works fine!</p>
+
+<div>
+  <ul *ngFor="let creditCard of creditCard$ | async">
+    <li>
+      {{creditCard.id}}
+    </li>
+    <li>
+      {{creditCard.cardHolder}}
+    </li>
+    <li>
+      {{creditCard.creditCardNumber}}
+    </li>
+    <li>
+      {{creditCard.securityCode}}
+    </li>
+    <li>
+      {{creditCard.expirationDate}}
+    </li>
+    <li>
+      {{creditCard.amount}}
+    </li>
+  </ul>
+</div>
+
+
+<app-payment-form></app-payment-form>
