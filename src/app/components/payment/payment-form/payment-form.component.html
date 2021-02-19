@@ -1,0 +1,19 @@
+
+<form (ngSubmit)="addCreditCardInfo()">
+  <label for="card-holder">Card Holder</label> <br>
+  <input type="text" name="nameHolder" [(ngModel)]="newCreditCardInfo.cardHolder" id="card-holder" > <br>
+
+  <label for="card-number">Card Number</label> <br>
+  <input type="number" name="nameNumber" id="card-number" [(ngModel)]="newCreditCardInfo.creditCardNumber"> <br>
+
+  <label for="security-number">Security Number</label> <br>
+  <input type="text" name="securityNumber" id="security-number" [(ngModel)]="newCreditCardInfo.securityCode"> <br>
+
+  <label for="expiration-date">Expiration Date</label> <br>
+  <input type="text" name="expirationDate" id="expiration-date" [(ngModel)]="newCreditCardInfo.expirationDate"> <br>
+
+  <label for="amount">Amount</label> <br>
+  <input type="number" name="amount" id="amount" [(ngModel)]="newCreditCardInfo.amount"> <br> <br>
+
+  <button type="submit">Submit</button>
+</form>

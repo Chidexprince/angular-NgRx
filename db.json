@@ -1,0 +1,13 @@
+{
+  "creditCardDetails": [
+    {
+      "id": "1324s-gdhdhjsj-yyey",
+      "creditCardNumber": 123456789012,
+      "cardHolder": "Chukwuka Chidera",
+      "expirationDate": "03/24",
+      "securityCode": 123,
+      "amount": 30000
+
+    }
+  ]
+}
