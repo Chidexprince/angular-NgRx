@@ -1,24 +1,42 @@
-<p>payment works fine!</p>
+<div class="container">
+  <div class="nav">
+    <h4>Angular and NgRx</h4>
+  </div>
+  <br><br>
+  <div class="row">
 
-<div>
-  <ul *ngFor="let creditCard of creditCardDetails | async">
-    <li>
-      {{creditCard.cardHolder}}
-    </li>
-    <li>
-      {{creditCard.creditCardNumber}}
-    </li>
-    <li>
-      {{creditCard.securityCode}}
-    </li>
-    <li>
-      {{creditCard.expirationDate}}
-    </li>
-    <li>
-      {{creditCard.amount}}
-    </li>
-  </ul>
+    <div class="col-md-4">
+      <div *ngFor="let creditCard of creditCardDetails | async">
+        <ul class="list-group" >
+          <li class="list-group-item">
+            {{creditCard.cardHolder}}
+          </li>
+          <li class="list-group-item">
+            {{creditCard.creditCardNumber}}
+          </li>
+          <li class="list-group-item">
+            {{creditCard.securityCode}}
+          </li>
+          <li class="list-group-item">
+            {{creditCard.expirationMonth}}
+          </li>
+          <li class="list-group-item">
+            {{creditCard.expirationYear}}
+          </li>
+          <li class="list-group-item">
+            {{creditCard.amount}}
+          </li>
+        </ul> <br>
+      </div>
+    </div>
+
+    <div class="col-md-8">
+      <app-payment-form></app-payment-form>
+    </div>
+  </div>
 </div>
 
 
-<app-payment-form></app-payment-form>
+
+
+

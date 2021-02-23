@@ -1,19 +1,58 @@
+    <div class="card">
+      <form [formGroup]="paymentForm" (ngSubmit)="addCreditCardInfo()" novalidate>
+        <div class="form-group">
+          <label>Name on Card</label>
+          <input class="form-control" type="text" formControlName="cardHolder" placeholder="John Krane"
+            [ngClass]="{ 'is-invalid': (f.cardHolder.dirty || f.cardHolder.touched) && f.cardHolder.errors }">
+          <div *ngIf="!f.cardHolder.valid && (f.cardHolder.dirty || f.cardHolder.touched)" class="invalid-feedback">
+            <div *ngIf="f.cardHolder.errors" class="alert alert-danger">Invalid Cardholder Name.</div>
+          </div>
+        </div>
 
-<form (ngSubmit)="addCreditCardInfo()">
-  <label for="card-holder">Card Holder</label> <br>
-  <input type="text" name="nameHolder" [(ngModel)]="newCreditCardInfo.cardHolder" id="card-holder" > <br>
+        <div class="form-group">
+          <label>Card Number</label>
+          <input class="form-control" type="number" formControlName="creditCardNumber" placeholder="1234123412341234"
+            [ngClass]="{ 'is-invalid': f.creditCardNumber.errors  && (f.creditCardNumber.dirty || f.creditCardNumber.touched)}">
+          <div *ngIf="!f.creditCardNumber.valid && (f.creditCardNumber.dirty || f.creditCardNumber.touched)"
+            class="invalid-feedback">
+            <div *ngIf="f.creditCardNumber.errors" class="alert alert-danger">Invalid Card Number.</div>
+          </div>
+        </div>
 
-  <label for="card-number">Card Number</label> <br>
-  <input type="number" name="nameNumber" id="card-number" [(ngModel)]="newCreditCardInfo.creditCardNumber"> <br>
+        <div class="form-group expiry">
+          <label>Date of Expiration</label>
+          <input class="form-control month" type="number" formControlName="expirationMonth" placeholder="12"
+            [ngClass]="{ 'is-invalid': !f.expirationMonth.valid && (f.expirationMonth.dirty || f.expirationMonth.touched) }">
+          <input class="form-control year" type="number" formControlName="expirationYear" placeholder="21"
+            [ngClass]="{ 'is-invalid': f.expirationYear.errors && (f.expirationYear.dirty || f.expirationYear.touched) }">
+          <div
+            *ngIf="( !f.expirationMonth.valid && (f.expirationMonth.dirty || f.expirationMonth.touched) ) || ( !f.expirationYear.valid && (f.expirationYear.dirty || f.expirationYear.touched))"
+            class="invalid-feedback">
+            <div *ngIf="f.expirationMonth.errors || f.expirationYear.errors" class="alert alert-danger">Invalid Date of
+              Expiration.</div>
+          </div>
+        </div>
 
-  <label for="security-number">Security Number</label> <br>
-  <input type="text" name="securityNumber" id="security-number" [(ngModel)]="newCreditCardInfo.securityCode"> <br>
+        <div class="form-group cvc">
+          <label>CVV/CVC</label>
+          <input class="form-control" type="number" formControlName="securityCode" placeholder="123"
+            [ngClass]="{ 'is-invalid': f.securityCode.errors && (f.securityCode.dirty || f.securityCode.touched) }">
+          <div *ngIf="!f.securityCode.valid && (f.securityCode.dirty || f.securityCode.touched)" class="invalid-feedback">
+            <div *ngIf="f.securityCode.errors" class="alert alert-danger">Invalid CVV / CVC Number.</div>
+          </div>
+        </div>
 
-  <label for="expiration-date">Expiration Date</label> <br>
-  <input type="text" name="expirationDate" id="expiration-date" [(ngModel)]="newCreditCardInfo.expirationDate"> <br>
+        <div class="form-group">
+          <label for="amount">Amount</label> <br>
+          <input type="number" class="form-control" formControlName="amount" id="amount"
+            [ngClass]="{ 'is-invalid': f.amount.errors && (f.amount.dirty || f.amount.touched) }">
+          <div *ngIf="!f.amount.valid && (f.amount.dirty || f.amount.touched)" class="invalid-feedback"></div>
+        </div>
+        <br>
 
-  <label for="amount">Amount</label> <br>
-  <input type="number" name="amount" id="amount" [(ngModel)]="newCreditCardInfo.amount"> <br> <br>
+        <button type="submit" class="btn btn-primary">Add Card</button>
+      </form>
+      <br>
+    </div>
+    <br><br>
 
-  <button type="submit">Add Card</button>
-</form>

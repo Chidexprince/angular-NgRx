@@ -7,7 +7,7 @@ import { PaymentComponent } from './components/payment/payment.component';
 import { PaymentFormComponent } from './components/payment/payment-form/payment-form.component';
 import { StoreModule } from '@ngrx/store';
 import { CreditCardReducer } from './store/reducers/credit-card.reducer';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
@@ -25,6 +25,7 @@ import { CreditCardEffects } from './store/effects/credit-card.effects';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     EffectsModule.forRoot([CreditCardEffects]),
     StoreModule.forRoot({
       creditCard: CreditCardReducer,
