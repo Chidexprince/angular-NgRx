@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { PaymentComponent } from './components/payment/payment.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', component: PaymentComponent },
+  { path: 'card-details', pathMatch: 'full', component: PaymentComponent },
 ];
 
 @NgModule({
