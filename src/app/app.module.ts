@@ -11,6 +11,8 @@ import { FormsModule } from '@angular/forms';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
+import { EffectsModule } from '@ngrx/effects';
+import { CreditCardEffects } from './store/effects/credit-card.effects';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    EffectsModule.forRoot([CreditCardEffects]),
     StoreModule.forRoot({
       creditCard: CreditCardReducer,
     }),

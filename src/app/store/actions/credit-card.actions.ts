@@ -36,7 +36,7 @@ export class AddCreditCardAction implements Action {
 export class AddCreditCardSuccessAction implements Action {
   readonly type = CreditCardActionTypes.ADD_CREDIT_CARD_SUCCESS ;
 
- constructor(public payload: Array<CreditCardInfo>) {}
+ constructor(public payload: CreditCardInfo) {}
 }
 
 export class AddCreditCardFailureAction implements Action {

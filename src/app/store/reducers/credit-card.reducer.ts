@@ -28,7 +28,11 @@ export function CreditCardReducer(state: CreditCardState = initialState, action:
       return { ...state, loading: true };
 
     case CreditCardActionTypes.ADD_CREDIT_CARD_SUCCESS:
-      return { ...state, list: action.payload, loading: false };
+      return {
+        ...state,
+          list: [...state.list, action.payload],
+        loading: false
+      };
 
     case CreditCardActionTypes.ADD_CREDIT_CARD_FAILURE:
       return { ...state, error: action.payload, loading: false };
