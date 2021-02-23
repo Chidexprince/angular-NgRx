@@ -1,5 +1,5 @@
-import { CreditCardInfo } from './credit-card-info.model';
+import { CreditCardState } from './../reducers/credit-card.reducer';
 
 export interface AppState {
-  readonly creditCard: Array<CreditCardInfo>;
+  readonly creditCard: CreditCardState;
 }

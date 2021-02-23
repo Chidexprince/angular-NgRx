@@ -1,10 +1,7 @@
 <p>payment works fine!</p>
 
 <div>
-  <ul *ngFor="let creditCard of creditCard$ | async">
-    <li>
-      {{creditCard.id}}
-    </li>
+  <ul *ngFor="let creditCard of creditCardDetails | async">
     <li>
       {{creditCard.cardHolder}}
     </li>

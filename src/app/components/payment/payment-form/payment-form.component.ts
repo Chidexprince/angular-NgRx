@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { CreditCardInfo } from 'src/app/store/models/credit-card-info.model';
+import { CreditCardInfo } from '../../../store/models/credit-card-info.model';
 import { AppState } from '../../../store/models/app-state.model';
 import { AddCreditCardAction } from './../../../store/actions/credit-card.actions';
 import { v4 as uuid } from 'uuid';
@@ -12,6 +12,9 @@ import { v4 as uuid } from 'uuid';
   styleUrls: ['./payment-form.component.scss']
 })
 export class PaymentFormComponent implements OnInit {
+  public creditCardDetails: Observable<Array<CreditCardInfo>>;
+  public loading$: Observable<boolean>;
+  public error$: Observable<Error>;
   public newCreditCardInfo: CreditCardInfo = {
     id: '', creditCardNumber: 0,
     cardHolder: '', expirationDate: '', securityCode: 0, amount: 0
